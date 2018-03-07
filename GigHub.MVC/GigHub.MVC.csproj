@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201803072229140_initialmodel.Designer.cs">
       <DependentUpon>201803072229140_initialmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803072231415_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201803072231415_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201803072231415_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -286,6 +290,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803072229140_initialmodel.resx">
       <DependentUpon>201803072229140_initialmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803072231415_PopulateGenresTable.resx">
+      <DependentUpon>201803072231415_PopulateGenresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
