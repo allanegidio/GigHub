@@ -38,6 +38,24 @@ textarea {
     color: #FFF;
 }
 
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: rgba(205, 40, 39, 0.55);
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.dropdown-menu {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 body,
 h1,
 h2,
@@ -55,3 +73,30 @@ h6,
     font-weight: 500;
     line-height: 1.1;
 }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+body {
+    font-size: 17px;
+}
+
+.form-control {
+    font-size: 17px;
+    padding: 20px 15px;
+    border-radius: 9px;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 9px;
+}
+
+.form-control:focus {
+    border-color: #2196F3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
