@@ -20,9 +20,9 @@ namespace GigHub.MVC.Controllers
         public IHttpActionResult Attend(AttendancesDTO dto)
         {
             var userId = User.Identity.GetUserId();
-            var existsDuplicated = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
+            var duplicated = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
 
-            if (existsDuplicated)
+            if (duplicated)
                 return BadRequest("The attendance already exists.");
 
             var attendace = new Attendance

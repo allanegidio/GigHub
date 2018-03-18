@@ -1,0 +1,61 @@
+﻿@model IEnumerable<GigHub.MVC.Models.Gig>
+
+@{
+    ViewBag.Title = "Mine";
+}
+
+<h2>My Upcoming Gigs</h2>
+
+<ul class="gigs voffset4">
+    @foreach (var gig in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @gig.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @gig.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @gig.Venue
+                </span>
+                <span class="genre">
+                    @gig.Genre.Name
+                </span>
+            </div>
+        </li>
+    }
+</ul>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.js-toggle-attendance').click(function (e) {
+                var buttonGigId = $(e.target);
+                $.post("/api/attendances", { gigId : buttonGigId.attr("data-gig-id") })
+                    .done(function () {
+                        buttonGigId.removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Going")
+                    })
+                    .fail(function () {
+                        alert(`Something Failed!!!`);
+                    });
+            });
+
+            $('.js-toggle-follow').click(function (e) {
+                var buttonArtistId = $(e.target);
+                $.post("api/followings", { followeeId: buttonArtistId.attr("data-user-id") })
+                    .done(function () {
+                        buttonArtistId.text("Following");
+                    })
+                    .fail(function () {
+                        alert(`Something Failed!!!`);
+                    });
+            });
+        });
+    </script>
+}
