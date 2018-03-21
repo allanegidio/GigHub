@@ -32,9 +32,9 @@ namespace GigHub.MVC.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Attendance>()
-                        .HasRequired(x => x.Gig)
-                        .WithMany()
-                        .WillCascadeOnDelete(false);
+                .HasRequired(a => a.Gig)
+                .WithMany(g => g.Attendances)
+                .WillCascadeOnDelete(false);
 
             //Um Artista tem varios seguidores(Followers) - Precisa de ser seguido (Followee)
             modelBuilder.Entity<ApplicationUser>()
@@ -49,9 +49,10 @@ namespace GigHub.MVC.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserNotification>()
-                .HasRequired(u => u.User)
-                .WithMany()
+                .HasRequired(n => n.User)
+                .WithMany(u => u.UserNotifications)
                 .WillCascadeOnDelete(false);
+
 
             base.OnModelCreating(modelBuilder);
         }
