@@ -18,13 +18,6 @@ namespace GigHub.MVC.Models
         [Required]
         public Gig Gig { get; private set; }
 
-        private Notification(NotificationType type, Gig gig)
-        {
-            Type = type;
-            Gig = gig ?? throw new ArgumentNullException("gig");
-            DateTime = DateTime.Now;
-        }
-
         protected Notification() { }
         public static Notification GigCreated(Gig gig) => new Notification(NotificationType.GigCreated, gig);
         public static Notification GigCancel(Gig gig) => new Notification(NotificationType.GigCanceled, gig);
@@ -35,6 +28,13 @@ namespace GigHub.MVC.Models
             notification.OriginalVenue = originalVenue;
 
             return notification;
+        }
+
+        private Notification(NotificationType type, Gig gig)
+        {
+            Type = type;
+            Gig = gig ?? throw new ArgumentNullException("gig");
+            DateTime = DateTime.Now;
         }
     }
 }
