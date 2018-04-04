@@ -90,6 +90,15 @@
                     return compiled({ notifications: notifications });
                 }
             });
+
+            $(".notifications").on('show.bs.popover', function () {
+                $.post("api/notifications/markAsRead")
+                    .done(function () {
+                        $(".js-notifications-count")
+                            .text("")
+                            .addClass("hide");
+                    });
+            });
         });        
     </script>
 </body>
