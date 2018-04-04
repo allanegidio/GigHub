@@ -35,11 +35,12 @@
                 <span class="genre">
                     @gig.Genre.Name
                 </span>
-                @if (Model.ShowActions && !gig.IsCanceled)
-                {
-                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
-                }
-                
+                <span class="going">
+                    @if (Model.ShowActions && !gig.IsCanceled)
+                    {
+                        <button data-gig-id="@gig.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
+                    }
+                </span>
             </div>
         </li>
     }

@@ -159,7 +159,7 @@ body {
 .gigs > li .details .genre {
   font-size: 15px;
 }
-.gigs > li .actions {
+.gigs > li .details .actions {
   font-size: 15px;
   display: none;
 }
@@ -177,7 +177,7 @@ body {
   border-bottom: 1px solid #ddd;
   padding: 10px;
 }
-.popover-notifications ul.notifications > li:last-child {
+.popover-notifications ul.notifications li:last-child {
   border-bottom: none;
 }
 .popover-notifications ul.notifications .highlight {

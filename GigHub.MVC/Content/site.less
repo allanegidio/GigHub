@@ -1,6 +1,4 @@
-﻿
-
-body {
+﻿body {
     padding-top: 90px;
     padding-bottom: 20px;
 }
@@ -65,33 +63,33 @@ span.field-validation-error {
     border-color: #FF4342;
 }
 
-    .navbar-inverse .navbar-nav > li > a {
-        color: #FFF;
-    }
+.navbar-inverse .navbar-nav > li > a {
+    color: #FFF;
+}
 
-    .navbar-inverse .navbar-brand {
-        color: #FFFFFF;
-    }
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
 
-    .navbar-inverse .notifications {
-        position: relative;
-    }
+.navbar-inverse .notifications {
+    position: relative;
+}
 
-        .navbar-inverse .notifications .badge {
-            position: absolute;
-            top: 4px;
-            right: 2px;
-            background: #a80a0a;
-        }
+.navbar-inverse .notifications .badge {
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    background: #a80a0a;
+}
 
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: rgba(205, 40, 39, 0.55);
-    }
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: rgba(205, 40, 39, 0.55);
+}
 
-    .navbar-inverse .navbar-nav > .dropdown > a .caret {
-        border-top-color: #FFF;
-        border-bottom-color: #FFF;
-    }
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+}
 
 .navbar-brand {
     font-weight: 700;
@@ -134,11 +132,11 @@ body {
     height: 44px;
 }
 
-    .form-control:focus {
-        border-color: #2196F3;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-    }
+.form-control:focus {
+    border-color: #2196F3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
 
 
 .btn {
@@ -151,80 +149,86 @@ body {
 
 .gigs {
     list-style: none;
-}
 
-    .gigs > li {
+    > li {
         position: relative;
         margin-bottom: 30px;
-    }
 
-        .gigs > li .date {
+        .date {
             background: red;
             color: white;
             text-align: center;
             width: 60px;
             border-radius: 8px;
-        }
 
-            .gigs > li .date .month {
+            .month {
                 text-transform: uppercase;
                 font-size: 14px;
                 font-weight: bold;
                 padding: 4px 12px;
             }
 
-            .gigs > li .date .day {
+            .day {
                 background: #F7F7F7;
                 color: #333;
                 font-size: 20px;
                 padding: 6px 12px;
             }
+        }
 
-        .gigs > li .details {
+        .details {
             position: absolute;
             top: 0px;
             left: 70px;
-        }
 
-            .gigs > li .details .artist {
+            .artist {
                 font-weight: bold;
                 display: block;
                 padding-bottom: 10px;
                 padding-top: 2px;
             }
 
-            .gigs > li .details .genre {
+            .genre {
                 font-size: 15px;
             }
 
+            .going {
 
-        .gigs > li .actions {
-            font-size: 15px;
-            display: none;
+            }
+
+            .actions {
+                font-size: 15px;
+                display: none;
+            }
         }
-
-        .gigs > li:hover .actions {
-            display: block;
-        }
-
-.popover-notifications .popover-content {
-    padding: 0px;
-}
-
-.popover-notifications ul.notifications {
-    list-style: none;
-    padding-left: 0px;
-}
-
-    .popover-notifications ul.notifications > li {
-        border-bottom: 1px solid #ddd;
-        padding: 10px;
     }
 
-        .popover-notifications ul.notifications > li:last-child {
+    > li:hover .actions {
+        display: block;
+    }
+}
+
+.popover-notifications {
+
+    .popover-content {
+        padding: 0px;
+    }
+
+    ul.notifications {
+        list-style: none;
+        padding-left: 0px;
+
+        > li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        li:last-child {
             border-bottom: none;
         }
 
-    .popover-notifications ul.notifications .highlight {
-        font-weight: bold;
+        .highlight {
+            font-weight: bold;
+        }
     }
+}
