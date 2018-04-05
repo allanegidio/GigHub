@@ -20,7 +20,7 @@ namespace GigHub.MVC.Controllers.Api
         public IHttpActionResult Follow(FollowingDTO dto)
         {
             var userId = User.Identity.GetUserId();
-            var duplicated = _context.Followings.Any(f => f.FolloweeId == userId && f.FolloweeId == dto.FolloweeId);
+            var duplicated = _context.Followings.Any(f => f.FolloweeId == dto.FolloweeId && f.FollowerId == userId);
 
             if (duplicated)
                 return BadRequest("Following already exists");

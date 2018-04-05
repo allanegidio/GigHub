@@ -17,6 +17,7 @@ namespace GigHub.MVC.Models
         public ICollection<Following> Followers { get; set; }
 
         public ICollection<Following> Followees { get; set; }
+
         public ICollection<UserNotification> UserNotifications { get; private set; }
 
         public ApplicationUser()
