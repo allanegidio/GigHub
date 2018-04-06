@@ -9,7 +9,9 @@ namespace GigHub.MVC
         {
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                     "~/Scripts/app/services/attendancesService.js",
+                    "~/Scripts/app/services/followingsService.js",
                     "~/Scripts/app/controllers/gigsController.js",
+                    "~/Scripts/app/controllers/followingsController.js",
                     "~/Scripts/app/app.js"
                 ));
 

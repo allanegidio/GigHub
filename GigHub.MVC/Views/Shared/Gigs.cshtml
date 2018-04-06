@@ -64,19 +64,7 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            
             GigsController.init("#gigs");
-
-            $('.js-toggle-follow').click(function (e) {
-                var buttonArtistId = $(e.target);
-                $.post("api/followings", { followeeId: buttonArtistId.attr("data-artist-id") })
-                    .done(function () {
-                        buttonArtistId.text("Following");
-                    })
-                    .fail(function () {
-                        alert(`Something Failed!!!`);
-                    });
-            });
         });
     </script>
 }

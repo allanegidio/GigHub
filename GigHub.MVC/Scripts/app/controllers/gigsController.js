@@ -12,15 +12,9 @@
 
         var gigId = buttonGigId.attr("data-gig-id");
 
-        if (buttonGigId.hasClass("btn-default")) {
-            attendancesService.createAttendance(gigId, done, fail);
-        } else {
-            attendancesService.deleteAttendance(gigId, done, fail);
-        }
-
-        //buttonGigId.hasClass("btn-default")
-        //    ? attendanceService.createAttendance(gigId, done, fail)
-        //    : attendanceService.deleteAttendance(gigId, done, fail);
+        buttonGigId.hasClass("btn-default")
+            ? attendancesService.createAttendance(gigId, done, fail)
+            : attendancesService.deleteAttendance(gigId, done, fail);
     };
 
     var fail = function () {
