@@ -45,7 +45,7 @@ namespace GigHub.MVC.Controllers.Api
                 .FirstOrDefault(f => f.FolloweeId == id && f.FollowerId == userId);
 
             if (following == null)
-                return BadRequest("Following not exists");
+                return NotFound();
 
             _context.Followings.Remove(following);
             _context.SaveChanges();

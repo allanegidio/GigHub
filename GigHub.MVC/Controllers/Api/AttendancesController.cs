@@ -44,7 +44,7 @@ namespace GigHub.MVC.Controllers.Api
             var attendance = _context.Attendances.SingleOrDefault(a => a.AttendeeId == userId && a.GigId == id);
 
             if (attendance == null)
-                return BadRequest("The attendance not exists");
+                return NotFound();
 
             _context.Attendances.Remove(attendance);
             _context.SaveChanges();
