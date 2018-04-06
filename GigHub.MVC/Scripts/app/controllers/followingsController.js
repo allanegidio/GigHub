@@ -1,24 +1,25 @@
 ﻿var FollowingController = function (followingsService) {
 
-    var buttonArtistId;
+    var buttonFollow;
 
-    var init = function (container) {
-        $(container).on('click', '.js-toggle-follow', toggleFollow);
+    var init = function () {
+        $('.js-toggle-follow').click(toggleFollowing);
     };
 
-    var toggleFollow = function (e) {
-        buttonArtistId = $(e.target);
-        var artistId = buttonArtistId.attr("data-artist-id");
+    var toggleFollowing = function (e) {
 
-        buttonArtistId.hasClass("btn-default")
+        buttonFollow = $(e.target);
+        var artistId = buttonFollow.attr("data-artist-id");
+
+        buttonFollow.hasClass("btn-default")
             ? followingsService.follow(artistId, done, fail)
             : FollowingsService.unfollow(artistId, done, fail);
     }
 
     var done = function () {
-        var text = buttonArtistId.text() === "Following" ? "Follow" : "Following";
+        var text = buttonFollow.text() === "Following" ? "Follow" : "Following";
 
-        buttonArtistId
+        buttonFollow
             .toggleClass("btn-info")
             .toggleClass("btn-default")
             .text(text);

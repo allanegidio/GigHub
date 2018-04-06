@@ -41,7 +41,8 @@ namespace GigHub.MVC.Controllers.Api
         public IHttpActionResult Unfollow(string id)
         {
             var userId = User.Identity.GetUserId();
-            var following = _context.Followings.FirstOrDefault(f => f.FolloweeId == id && f.FollowerId == userId);
+            var following = _context.Followings
+                .FirstOrDefault(f => f.FolloweeId == id && f.FollowerId == userId);
 
             if (following == null)
                 return BadRequest("Following not exists");
