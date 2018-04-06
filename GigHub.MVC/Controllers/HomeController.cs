@@ -35,9 +35,9 @@ namespace GigHub.MVC.Controllers
 
             var userId = User.Identity.GetUserId();
             var attendances = _context.Attendances
-                .Where(a => a.AttendeeId == userId && a.Gig.DateTime > DateTime.Now)
-                .ToList()
-                .ToLookup(a => a.GigId);
+                                .Where(a => a.AttendeeId == userId && a.Gig.DateTime > DateTime.Now)
+                                .ToList()
+                                .ToLookup(a => a.GigId);
 
             var viewModel = new GigsViewModel
             {
