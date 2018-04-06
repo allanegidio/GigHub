@@ -1,4 +1,4 @@
-﻿var FollowingController = function (followingsService) {
+﻿var GigDetailsController = function (followingsService) {
 
     var buttonFollow;
 
@@ -14,16 +14,17 @@
         buttonFollow.hasClass("btn-default")
             ? followingsService.follow(artistId, done, fail)
             : FollowingsService.unfollow(artistId, done, fail);
-    }
+    };
 
     var done = function () {
-        var text = buttonFollow.text() === "Following" ? "Follow" : "Following";
+
+        var text = buttonFollow.text() === "Follow" ? "Following" : "Follow";
 
         buttonFollow
             .toggleClass("btn-info")
             .toggleClass("btn-default")
             .text(text);
-    }
+    };
 
     var fail = function () {
         alert("Something Failed!!!");

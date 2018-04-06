@@ -11,7 +11,7 @@ namespace GigHub.MVC
                     "~/Scripts/app/services/attendancesService.js",
                     "~/Scripts/app/services/followingsService.js",
                     "~/Scripts/app/controllers/gigsController.js",
-                    "~/Scripts/app/controllers/followingsController.js",
+                    "~/Scripts/app/controllers/gigDetailsController.js",
                     "~/Scripts/app/app.js"
                 ));
 

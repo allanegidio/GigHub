@@ -158,6 +158,11 @@ body {
 }
 .gigs > li .details .genre {
   font-size: 15px;
+  display: block;
+  margin-bottom: 4px;
+}
+.gigs > li .details .going {
+  font-size: 14px;
 }
 .gigs > li .details .actions {
   font-size: 15px;

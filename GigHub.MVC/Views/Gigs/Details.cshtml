@@ -8,13 +8,18 @@
     @Model.Gig.Artist.Name
     @if (User.Identity.IsAuthenticated)
     {
-        <button
-            data-artist-id="@Model.Gig.ArtistId"
-            class="btn @(Model.Following != null ? "btn-info" : "btn-default")
-                js-toggle-follow">
-            Follow
-        </button>
-    }   
+        if (Model.IsFollowing)
+        {
+            <button data-artist-id="@Model.Gig.ArtistId"
+                    class="btn btn-info js-toggle-follow">Following</button>
+        }
+        else
+        {
+            <button data-artist-id="@Model.Gig.ArtistId"
+                    class="btn btn-default js-toggle-follow">Follow</button>
+        }
+
+    }
 </h2>
 <p>
     Performing at @Model.Gig.Venue on @Model.Gig.DateTime.ToString("d MMM") at @Model.Gig.DateTime.ToString("HH:mm")
@@ -28,7 +33,7 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-            FollowingController.init();
+            GigDetailsController.init();
         });
     </script>
 }
