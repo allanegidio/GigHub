@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GigHub.MVC.Models.ApplicationUser>
+﻿@model IEnumerable<string>
 
 @{
     ViewBag.Title = "Index";
@@ -7,8 +7,8 @@
 <h1>Artists I'm Following</h1>
 
 <ul>
-    @foreach(var artists in Model)
+    @foreach(var artist in Model)
     {
-        <li>@artists.Name</li>
+        <li>@artist</li>
     }
 </ul>

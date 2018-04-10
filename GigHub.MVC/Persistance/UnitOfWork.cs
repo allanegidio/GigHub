@@ -1,6 +1,6 @@
-﻿using GigHub.MVC.Models;
-using GigHub.MVC.Repositories;
-using GigHub.MVC.Repositories.Interfaces;
+﻿using GigHub.MVC.Core;
+using GigHub.MVC.Core.Repositories;
+using GigHub.MVC.Persistance.Repositories;
 
 namespace GigHub.MVC.Persistance
 {
@@ -12,6 +12,7 @@ namespace GigHub.MVC.Persistance
         public IAttendanceRepository Attendances { get; private set; }
         public IGenreRepository Genres { get; private set; }
         public IFollowingRepository Followings { get; private set; }
+        public IApplicationUserRepository Users { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -20,6 +21,7 @@ namespace GigHub.MVC.Persistance
             Attendances = new AttendanceRepository(context);
             Genres = new GenreRepository(context);
             Followings = new FollowingRepository(context);
+            Users = new ApplicationUserRepository(context);
         }
 
         public void Complete()

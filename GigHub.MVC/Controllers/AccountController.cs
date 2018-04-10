@@ -1,5 +1,5 @@
-﻿using GigHub.MVC.Models;
-using GigHub.MVC.ViewModels;
+﻿using GigHub.MVC.Core.Models;
+using GigHub.MVC.Core.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;

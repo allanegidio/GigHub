@@ -64,7 +64,12 @@
                             newValues.push(moment(notification.gig.dateTime).format("D MMM HH:mm"));
                         }
                  %>    
-                        <li><span class="highlight"><%= notification.gig.artist.name %></span> has changed the <% changes.join(' and ')%> of the gig from <%= originalValues.join('/') %> to <%= newValues.join('/')%></li>
+                        <li>
+                            <span class="highlight"><%= notification.gig.artist.name %></span> has changed the 
+                            <span class="highlight"><% changes.join(' and ')%></span> of the gig from 
+                            <span class="highlight"><%= originalValues.join('/') %></span> to 
+                            <span class="highlight"><%= newValues.join('/')%></span>
+                        </li>
                 <%  }
                 })
             %>
