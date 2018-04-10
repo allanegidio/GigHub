@@ -4,6 +4,8 @@ namespace GigHub.MVC.Core.Repositories
 {
     public interface IFollowingRepository
     {
-        Following GetFollowing(string userId, string artistId);
+        Following GetFollowing(string artistId, string userId);
+        void Add(Following following);
+        void Remove(Following following);
     }
 }

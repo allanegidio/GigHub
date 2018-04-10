@@ -14,7 +14,7 @@ namespace GigHub.MVC.Persistance.Repositories
             _context = context;
         }
 
-        public IList<ApplicationUser> GetArtistsFollowedByUser(string userId)
+        public IEnumerable<ApplicationUser> GetArtistsFollowedByUser(string userId)
         {
             return _context.Followings
                 .Where(f => f.FollowerId == userId)

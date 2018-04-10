@@ -1,4 +1,5 @@
 ﻿using GigHub.MVC.Core.Models;
+using GigHub.MVC.Persistance.EntityConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
@@ -32,10 +33,7 @@ namespace GigHub.MVC.Persistance
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Attendance>()
-                .HasRequired(a => a.Gig)
-                .WithMany(g => g.Attendances)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Configurations.Add(new GigConfiguration());
 
             //Um Artista tem varios seguidores(Followers) - Precisa de ser seguido (Followee)
             modelBuilder.Entity<ApplicationUser>()

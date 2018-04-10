@@ -5,6 +5,6 @@ namespace GigHub.MVC.Core.Repositories
 {
     public interface IApplicationUserRepository
     {
-        IList<ApplicationUser> GetArtistsFollowedByUser(string userId);
+        IEnumerable<ApplicationUser> GetArtistsFollowedByUser(string userId);
     }
 }

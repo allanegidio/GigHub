@@ -1,10 +1,6 @@
-﻿using GigHub.MVC.Core.ViewModels;
-using GigHub.MVC.Extensions;
-using GigHub.MVC.Persistance;
-using GigHub.MVC.Persistance.Repositories;
+﻿using GigHub.MVC.Core;
+using GigHub.MVC.Core.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -12,38 +8,21 @@ namespace GigHub.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly GigRepository _gigRepository;
-        private readonly AttendanceRepository _attendanceRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _gigRepository = new GigRepository(_context);
-            _attendanceRepository = new AttendanceRepository(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index(string query = null)
         {
-            var upcomingGigs = _context.Gigs
-                .Include(x => x.Artist)
-                .Include(x => x.Genre)
-                .Where(x => x.DateTime > DateTime.Now && !x.IsCanceled);
-
-            if (query.IsNotNullOrEmpty())
-            {
-                upcomingGigs = upcomingGigs
-                    .Where(g => g.Artist.Name.Contains(query) ||
-                                g.Genre.Name.Contains(query) ||
-                                g.Venue.Contains(query));
-            }
-
             var userId = User.Identity.GetUserId();
 
             var viewModel = new GigsViewModel
             {
-                UpcomingGigs = upcomingGigs,
-                Attendances = _attendanceRepository.GetFutureAttendances(userId).ToLookup(g => g.GigId),
+                UpcomingGigs = _unitOfWork.Gigs.GetUpcomingGigs(query),
+                Attendances = _unitOfWork.Attendances.GetFutureAttendances(userId).ToLookup(g => g.GigId),
                 ShowActions = User.Identity.IsAuthenticated,
                 SearchTerm = query,
                 Heading = "Upcoming Gigs"

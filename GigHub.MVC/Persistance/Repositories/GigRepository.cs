@@ -1,5 +1,6 @@
 ﻿using GigHub.MVC.Core.Models;
 using GigHub.MVC.Core.Repositories;
+using GigHub.MVC.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -58,6 +59,24 @@ namespace GigHub.MVC.Persistance.Repositories
         public void Remove(Gig gig)
         {
             _context.Gigs.Remove(gig);
+        }
+
+        public IEnumerable<Gig> GetUpcomingGigs(string query = null)
+        {
+            var upcomingGigs = _context.Gigs
+                .Include(x => x.Artist)
+                .Include(x => x.Genre)
+                .Where(x => x.DateTime > DateTime.Now && !x.IsCanceled);
+
+            if (query.IsNotNullOrEmpty())
+            {
+                upcomingGigs = upcomingGigs
+                    .Where(g => g.Artist.Name.Contains(query) ||
+                                g.Genre.Name.Contains(query) ||
+                                g.Venue.Contains(query));
+            }
+
+            return upcomingGigs.ToList();
         }
     }
 }
