@@ -235,7 +235,13 @@
     <Compile Include="Core\Models\NotificationType.cs" />
     <Compile Include="Core\Models\UserNotification.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Persistance\EntityConfigurations\ApplicationUserConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfigurations\AttendanceConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfigurations\FollowingConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfigurations\GenreConfiguration.cs" />
     <Compile Include="Persistance\EntityConfigurations\GigConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfigurations\NotificationConfiguration.cs" />
+    <Compile Include="Persistance\EntityConfigurations\UserNotificationConfiguration.cs" />
     <Compile Include="Persistance\Repositories\ApplicationUserRepository.cs" />
     <Compile Include="Persistance\Repositories\NotificationRepository.cs" />
     <Compile Include="Persistance\Repositories\UserNotificationRepository.cs" />

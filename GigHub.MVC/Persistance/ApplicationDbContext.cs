@@ -34,18 +34,13 @@ namespace GigHub.MVC.Persistance
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new GigConfiguration());
+            modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
+            modelBuilder.Configurations.Add(new AttendanceConfiguration());
+            modelBuilder.Configurations.Add(new FollowingConfiguration());
+            modelBuilder.Configurations.Add(new GenreConfiguration());
+            modelBuilder.Configurations.Add(new NotificationConfiguration());
+            modelBuilder.Configurations.Add(new UserNotificationConfiguration());
 
-            //Um Artista tem varios seguidores(Followers) - Precisa de ser seguido (Followee)
-            modelBuilder.Entity<ApplicationUser>()
-                .HasMany(a => a.Followers)
-                .WithRequired(f => f.Followee)
-                .WillCascadeOnDelete(false);
-
-            //Um Artista está seguindo pessoas (Followees) - Precisa de um seguidor (Follower)
-            modelBuilder.Entity<ApplicationUser>()
-                .HasMany(u => u.Followees)
-                .WithRequired(f => f.Follower)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserNotification>()
                 .HasRequired(n => n.User)
