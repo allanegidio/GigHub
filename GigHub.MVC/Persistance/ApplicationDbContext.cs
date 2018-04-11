@@ -42,12 +42,6 @@ namespace GigHub.MVC.Persistance
             modelBuilder.Configurations.Add(new UserNotificationConfiguration());
 
 
-            modelBuilder.Entity<UserNotification>()
-                .HasRequired(n => n.User)
-                .WithMany(u => u.UserNotifications)
-                .WillCascadeOnDelete(false);
-
-
             base.OnModelCreating(modelBuilder);
         }
     }
