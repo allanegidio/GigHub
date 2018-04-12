@@ -20,7 +20,7 @@ namespace GigHub.MVC.Core.Models
 
         public static Notification GigCreated(Gig gig) => new Notification(NotificationType.GigCreated, gig);
 
-        public static Notification GigCancel(Gig gig) => new Notification(NotificationType.GigCanceled, gig);
+        public static Notification GigCanceled(Gig gig) => new Notification(NotificationType.GigCanceled, gig);
 
         public static Notification GigUpdated(Gig newGig, DateTime originalDateTime, string originalVenue)
         {

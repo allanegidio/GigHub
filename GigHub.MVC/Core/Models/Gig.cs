@@ -34,7 +34,7 @@ namespace GigHub.MVC.Core.Models
         {
             IsCanceled = true;
 
-            var notification = Notification.GigCancel(this);
+            var notification = Notification.GigCanceled(this);
 
             foreach (var attendee in Attendances.Select(a => a.Attendee))
             {
@@ -50,10 +50,16 @@ namespace GigHub.MVC.Core.Models
             DateTime = dateTime;
             GenreId = genre;
 
-            foreach(var attendee in Attendances.Select(a => a.Attendee))
+            foreach(var attendee in GetAttendees())
             {
                 attendee.Notify(notification);
             }
+            
+        }
+
+        public IEnumerable<ApplicationUser> GetAttendees()
+        {
+            return Attendances.Select(a => a.Attendee).ToList();
         }
     }
 }

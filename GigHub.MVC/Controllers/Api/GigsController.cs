@@ -20,7 +20,7 @@ namespace GigHub.MVC.Controllers.Api
             var userId = User.Identity.GetUserId();
             var gig = _unitOfWork.Gigs.GetGigWithAttendees(id);
 
-            if (gig.IsCanceled)
+            if(gig == null || gig.IsCanceled)
                 return NotFound();
 
             if (gig.ArtistId != userId)
@@ -32,7 +32,5 @@ namespace GigHub.MVC.Controllers.Api
 
             return Ok();
         }
-
-        
     }
 }
