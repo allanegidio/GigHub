@@ -10,14 +10,14 @@ namespace GigHub.IntegrationTests
 
         public ActionTargets Targets => ActionTargets.Test;
 
-        public void AfterTest(TestDetails testDetails)
-        {
-            _transactionScope.Dispose();
-        }
-
         public void BeforeTest(TestDetails testDetails)
         {
             _transactionScope = new TransactionScope();
         }
+
+        public void AfterTest(TestDetails testDetails)
+        {
+            _transactionScope.Dispose();
+        }       
     }
 }
