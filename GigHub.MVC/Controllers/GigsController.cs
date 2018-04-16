@@ -48,7 +48,7 @@ namespace GigHub.MVC.Controllers
             return View("Details", viewModel);
         }
 
-        public ActionResult Mine()
+        public ViewResult Mine()
         {
             var userId = User.Identity.GetUserId();
             var gigs = _unitOfWork.Gigs.GetUpcomingGigsByArtist(userId);
